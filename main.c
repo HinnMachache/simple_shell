@@ -43,7 +43,7 @@ int main()
 		argv[counter] = NULL; /* Terminate the array with NULL*/
 		if (strcmp(argv[0], "exit") == 0)
 		{
-			handle_exit();
+			exit_builtin();
 		}
 		execCmd(argv); /*Execute the Command */
 	}

@@ -11,6 +11,6 @@
 
 void execCmd(char **);
 char *command_Location(char *);
-void handle_exit();
+void exit_builtin(void);
 
 #endif
