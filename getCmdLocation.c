@@ -19,7 +19,7 @@ char *command_Location(char *command)
 		while (token != NULL)
 		{
 			directory_len = strlen(token);
-			file_path = malloc(sizeof(char *) * (command_len + directory_len + 2));
+			file_path = malloc(command_len + directory_len + 2);
 			strcpy(file_path, token);
 			strcat(file_path, "/");
 			strcat(file_path, command);
@@ -28,6 +28,7 @@ char *command_Location(char *command)
 			if (stat(file_path, &bufferStat) == 0)
 			{
 				free(command_path_Copy);
+				free(command);
 				return (file_path);
 			}
 			else
@@ -40,7 +41,6 @@ char *command_Location(char *command)
 
 		if (stat(command, &bufferStat) == 0)
 			return (command);
-
 		return (NULL);
 	}
 	return (NULL);
