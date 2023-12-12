@@ -47,6 +47,8 @@ int main()
 		}
 		execCmd(argv); /*Execute the Command */
 	}
+
+
 	free(bufferCommand);
 	free(bufferDuplicate);
 	free(argv);

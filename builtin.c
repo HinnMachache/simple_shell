@@ -35,15 +35,3 @@ void helpCommand() {
     printf("  cd   - Change the current directory\n");
     printf("  exit - Exit the shell\n");
 }
-
-void cdCommand(char *directory) {
-    if (directory == NULL) {
-        printf("Usage: cd [directory]\n");
-    } else {
-        if (chdir(directory) == 0) {
-            printf("Changed directory to %s\n", directory);
-        } else {
-            perror("cd");
-        }
-    }
-}
