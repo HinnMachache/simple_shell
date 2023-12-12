@@ -24,7 +24,7 @@ char **env_when = environ;
 
 while (*env_when)
 {
-	printf("%s\n", *env_when);
+	write(STDIN_FILENO, *env_when, strlen(*env_when));
 	env_when++;
 }
 }

@@ -6,17 +6,19 @@
 
 int main()
 {
-	char *token, *prompt = "$ ";
+	char *token, *prompt = "";
 	char *bufferCommand = NULL, *bufferDuplicate = NULL;
 	char **argv;
 	const char *delim = " \n";
 	size_t no_Byte = 0;
 	ssize_t no_Char;
 	int num_token, counter;
-	
+
+	if (isatty(STDIN_FILENO) && isatty(STDOUT_FILENO))
+		prompt = "($) ";	
 	while (1)
 	{
-		printf("%s", prompt);
+		write(STDIN_FILENO, prompt,strlen(prompt));	
 		no_Char = getline(&bufferCommand, &no_Byte, stdin);
 		bufferDuplicate = strdup(bufferCommand);
 		
