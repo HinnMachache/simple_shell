@@ -39,7 +39,7 @@ void execCmd(char **argv)
 		}
 		else
 		{
-			perror("Command");
+			perror("./hsh");
 		}
 	}
 }
