@@ -4,7 +4,7 @@
  */
  
 
-void execCmd(char **argv)
+int execCmd(char **argv)
 {
 	char *command = NULL, *actualCommand = NULL;
 	int status;
@@ -15,6 +15,13 @@ void execCmd(char **argv)
 		command = argv[0];
 		actualCommand = command_Location(command);
 		
+		if (_strcmp(argv[0], "exit") == 0)
+                        exit_builtin(argv[1]);
+                if (_strcmp(argv[0], "env") == 0)
+		{
+                        environ_builtin();
+			return(0);
+		}		
 		if (actualCommand && access(actualCommand, X_OK) == 0)
 		{
 			pid = fork();
@@ -54,4 +61,5 @@ void execCmd(char **argv)
 			perror("./hsh");
 		}
 	}
+	return (0);
 }

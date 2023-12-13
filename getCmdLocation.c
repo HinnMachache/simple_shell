@@ -21,9 +21,9 @@ char *command_Location(char *command)
 			directory_len = strlen(token);
 			file_path = malloc(command_len + directory_len + 2);
 			strcpy(file_path, token);
-			strcat(file_path, "/");
-			strcat(file_path, command);
-			strcat(file_path, "\0");
+			_strncat(file_path, "/", 1);
+			_strncat(file_path, command, command_len);
+			_strncat(file_path, "\0", 1);
 			
 			if (stat(file_path, &bufferStat) == 0)
 			{
