@@ -30,7 +30,7 @@ int main()
 		token = strtok(bufferCommand, delim);
 		for (num_token = 0; token != NULL; num_token++) /* Get Number of tokens to malloc argv*/
 			token = strtok(NULL, delim);
-		argv = malloc(sizeof(char *) * num_token);
+		argv = malloc(sizeof(char *) * num_token + 1);
 		argc = num_token + 1;
 		if (argv == NULL) /* Check if memory is allocated succesfully*/
 		{
